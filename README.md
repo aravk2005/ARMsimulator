@@ -1,2 +1,2 @@
 # ARMsimulator
-Created an ARM cpu simulator on python to process both Thumb Instructions and ARM instructions
+Created an ARM CPU simulator to process both Thumb Instructions and ARM instructions
