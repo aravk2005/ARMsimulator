@@ -152,11 +152,3 @@ def get_instruction_list(filename): #used AI to assist with get_instruction_list
 
 
 
-
-
-
-
-
-
-
-
