@@ -20,5 +20,5 @@ A simple ARMv7 CPU simulator written in Python. It parses and executes a subset 
 
 1. Clone the repo:
    git clone https://github.com/aravk2005/ARMsimulator.git
-2. Navigate to the simulator file
-3. Run the simulator file
+2. Navigate to main.py
+3. Run main.py to see the simulator work in action!
