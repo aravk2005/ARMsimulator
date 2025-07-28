@@ -1,6 +1,6 @@
-# ARMsimulator 🧠
+# ARM and THUMB Instruction Simulator!
 
-A simple ARMv7 CPU simulator written in Python. It parses and executes a subset of ARM assembly instructions, showing CPU state step-by-step.
+A simple ARMv7 CPU simulator written in Python. It parses and executes a subset of both ARM assembly instructions and THUMB instructions, showing CPU state step-by-step.
 
 ## Features
 
