@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARM Assembly Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ARMv7 Assembly Simulator</h1>
+            <p>ARMv7 instruction simulator</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Instruction Input Section -->
+            <div class="section instruction-section">
+                <h2>Instructions</h2>
+                <div class="input-controls">
+                    <textarea id="instructionInput" placeholder="Enter ARM assembly instructions (one per line):
+MOV R0, #4
+ADD R1, R0, #2
+SUB R2, R1, R0
+CMP R0, #4"></textarea>
+                    <div class="button-group">
+                        <button id="loadInstructions" class="btn btn-primary">Load Instructions</button>
+                        <button id="loadSample" class="btn btn-secondary">Load Sample</button>
+                        <button id="clearInstructions" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+                
+                <div class="instruction-list">
+                    <h3>Loaded Instructions</h3>
+                    <div id="instructionDisplay" class="instruction-display">
+                        <p class="empty-state">No instructions loaded</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CPU State Section -->
+            <div class="section cpu-section">
+                <h2>CPU State</h2>
+                
+                <!-- Registers -->
+                <div class="registers">
+                    <h3>Registers</h3>
+                    <div class="register-grid" id="registerGrid">
+                        <!-- Registers will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Flags -->
+                <div class="flags">
+                    <h3>CPSR Flags</h3>
+                    <div class="flag-display">
+                        <div class="flag" id="flagZ">Z: <span>0</span></div>
+                        <div class="flag" id="flagN">N: <span>0</span></div>
+                        <div class="flag" id="flagC">C: <span>0</span></div>
+                        <div class="flag" id="flagV">V: <span>0</span></div>
+                    </div>
+                </div>
+
+                <!-- Program Counter -->
+                <div class="pc-display">
+                    <h3>Program Counter</h3>
+                    <div class="pc-value" id="pcValue">0</div>
+                </div>
+            </div>
+
+            <!-- Control Section -->
+            <div class="section control-section">
+                <h2>Simulation Controls</h2>
+                <div class="control-buttons">
+                    <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                    <button id="stepBtn" class="btn btn-primary">Step</button>
+                    <button id="runBtn" class="btn btn-success">Run All</button>
+                    <button id="pauseBtn" class="btn btn-warning" disabled>Pause</button>
+                </div>
+                
+                <div class="execution-info">
+                    <div class="current-instruction">
+                        <h3>Current Instruction</h3>
+                        <div id="currentInstr" class="current-instr-display">
+                            <p class="empty-state">No instruction selected</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cycle-counter">
+                        <h3>Cycle Count</h3>
+                        <div id="cycleCount" class="cycle-value">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Execution Log Section -->
+            <div class="section log-section">
+                <h2>Execution Log</h2>
+                <div class="log-controls">
+                    <button id="clearLog" class="btn btn-secondary">Clear Log</button>
+                </div>
+                <div id="executionLog" class="execution-log">
+                    <p class="empty-state">Execution log will appear here</p>
+                </div>
+            </div>
+
+            <!-- Memory Section -->
+            <div class="section memory-section">
+                <h2>Memory</h2>
+                <div class="memory-controls">
+                    <label for="memoryStart">Start Address:</label>
+                    <input type="number" id="memoryStart" value="0" min="0" max="65535">
+                    <button id="refreshMemory" class="btn btn-secondary">Refresh</button>
+                </div>
+                <div id="memoryDisplay" class="memory-display">
+                    <!-- Memory will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
