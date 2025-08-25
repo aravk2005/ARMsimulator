@@ -1,0 +1,465 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, red 0%, #764ba2 100%);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  grid-template-areas:
+    "instructions cpu"
+    "controls controls"
+    "log memory";
+}
+
+.section {
+  background: pink;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e8ed;
+}
+
+.instruction-section {
+  grid-area: instructions;
+}
+
+.cpu-section {
+  grid-area: cpu;
+}
+
+.control-section {
+  grid-area: controls;
+}
+
+.log-section {
+  grid-area: log;
+}
+
+.memory-section {
+  grid-area: memory;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+}
+
+h3 {
+  color: #34495e;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* Button Styles */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background-color: grey;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: grey;
+}
+
+.btn-secondary {
+  background-color: grey;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: grey
+}
+
+.btn-success {
+  background-color: grey;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: grey
+}
+
+.btn-warning {
+  background-color: grey;
+  color: white;
+}
+
+.btn-warning:hover {
+  background-color: grey;
+}
+
+/* Instruction Section */
+#instructionInput {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 2px solid #bdc3c7;
+  border-radius: 5px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+#instructionInput:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.instruction-display {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  min-height: 100px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+}
+
+.instruction-item {
+  padding: 5px 10px;
+  margin: 2px 0;
+  border-radius: 3px;
+  background-color: #e9ecef;
+  border-left: 4px solid #6c757d;
+}
+
+.instruction-item.current {
+  background-color: #fff3cd;
+  border-left-color: #ffc107;
+  font-weight: bold;
+}
+
+.instruction-item.executed {
+  background-color: #d1ecf1;
+  border-left-color: #17a2b8;
+  opacity: 0.7;
+}
+
+/* CPU State Section */
+.register-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.register {
+  background-color: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  font-family: "Courier New", monospace;
+}
+
+.register.changed {
+  background-color: #fff3cd;
+  border-color: #ffc107;
+  animation: highlight 0.5s ease-in-out;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: #ffeb3b;
+  }
+  100% {
+    background-color: #fff3cd;
+  }
+}
+
+.register-label {
+  font-weight: bold;
+  color: #495057;
+  font-size: 12px;
+}
+
+.register-value {
+  font-size: 16px;
+  color: #212529;
+  margin-top: 5px;
+}
+
+.flag-display {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.flag {
+  background-color: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+}
+
+.flag.set {
+  background-color: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.pc-display {
+  margin-bottom: 20px;
+}
+
+.pc-value {
+  background-color: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Control Section */
+.control-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.execution-info {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.current-instr-display {
+  background-color: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  min-height: 60px;
+}
+
+.cycle-value {
+  background-color: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  font-family: "Courier New", monospace;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Log Section */
+.log-controls {
+  margin-bottom: 15px;
+}
+
+.execution-log {
+  background-color: #212529;
+  color: #f8f9fa;
+  border-radius: 5px;
+  padding: 15px;
+  height: 300px;
+  overflow-y: auto;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.log-entry {
+  margin-bottom: 5px;
+  padding: 2px 0;
+}
+
+.log-entry.cycle {
+  color: #17a2b8;
+  font-weight: bold;
+}
+
+.log-entry.instruction {
+  color: #28a745;
+  margin-left: 10px;
+}
+
+.log-entry.register-change {
+  color: #ffc107;
+  margin-left: 20px;
+}
+
+.log-entry.flag-change {
+  color: #dc3545;
+  margin-left: 20px;
+}
+
+/* Memory Section */
+.memory-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.memory-controls label {
+  font-weight: bold;
+}
+
+.memory-controls input {
+  padding: 5px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  width: 100px;
+}
+
+.memory-display {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  height: 250px;
+  overflow-y: auto;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+}
+
+.memory-row {
+  display: flex;
+  margin-bottom: 2px;
+}
+
+.memory-address {
+  width: 80px;
+  color: #6c757d;
+  font-weight: bold;
+}
+
+.memory-values {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+}
+
+.memory-byte {
+  width: 30px;
+  text-align: center;
+}
+
+.memory-byte.changed {
+  background-color: #fff3cd;
+  border-radius: 2px;
+}
+
+.empty-state {
+  color: #6c757d;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "instructions"
+      "cpu"
+      "controls"
+      "log"
+      "memory";
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .register-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .execution-info {
+    grid-template-columns: 1fr;
+  }
+
+  .flag-display {
+    flex-wrap: wrap;
+  }
+
+  .control-buttons {
+    justify-content: center;
+  }
+}
