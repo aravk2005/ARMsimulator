@@ -5,7 +5,7 @@ A simple ARMv7 CPU simulator written in Python. It parses and executes a subset 
 ## Features
 
 - Simulates registers, memory, and PC
-- Executes basic ARMv7 instructions
+- Executes basic ARMv7 instructions and Thumb instructions
 - Parses `.txt` assembly files
 - Prints state after each instruction
 
