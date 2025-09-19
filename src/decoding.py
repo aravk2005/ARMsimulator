@@ -119,7 +119,7 @@ def is_valid_arm_opcode(instr):
     cond = (instr >> 28) & 0xF
     return 0 <= cond <= 0xF
 
-def get_instruction_list(filename): #used AI to assist with get_instruction_list function
+def get_instruction_list(filename): 
     data = read_binary_file(filename)
     i = 0
     thumb_mode = False
@@ -147,6 +147,7 @@ def get_instruction_list(filename): #used AI to assist with get_instruction_list
             break
 
     return instruction
+
 
 
 
