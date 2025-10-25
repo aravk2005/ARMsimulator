@@ -23,5 +23,3 @@ A simple ARMv7 CPU simulator written in Python. It parses and executes a subset 
 3. Click load sample in the instructions section
 4. Navigate to the execution log and view CPU states
 
-## Try It Out!
-http://127.0.0.1:3000/src/index.html?serverWindowId=219731b0-e672-4d42-99fd-b8ee5af87512
