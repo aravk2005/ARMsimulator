@@ -3,6 +3,8 @@
 A simple ARMv7 CPU simulator written in Python. It parses and executes a subset of both ARM assembly instructions and THUMB instructions, showing CPU state step-by-step.
 
 Frontend design by Valence
+
+
 Simulation logic and testing by Arav 
 
 ## Features
